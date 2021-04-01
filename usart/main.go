@@ -79,11 +79,23 @@ func main() {
 		rtcst.SetTime(t, rtos.Nanosec())
 	}
 
+	// var buf [40]byte
+
 	for {
 		led4.Set()
 		delay.Millisec(500)
 		led4.Clear()
 		delay.Millisec(500)
+
+		// n, err := tts.Read(buf[:])
+		// if err != nil {
+		// 	tts.WriteString(err.Error())
+		// 	tts.WriteString(" -> ")
+		// } else {
+		// 	tts.WriteString("ok -> ")
+		// }
+		// tts.Write(buf[:n])
+		// tts.WriteString("\r\n")
 
 		t := time.Now()
 		y, mo, d := t.Date()
@@ -108,6 +120,7 @@ func main() {
 		tts.WriteByte(' ')
 		tts.WriteString(zone)
 		tts.WriteString("\r\n")
+
 	}
 }
 
